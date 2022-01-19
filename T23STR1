@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>  
+#include"STR1.h"
+
+void main(void)
+{
+  char *s, fname[1000] = "X:\\TXT\\ORWELL.TXT";
+  char abc[26] = "abcdefghijklmnopqrstuvwxyz";
+  int i = 0;
+
+  s = Load(fname);
+  if (s == NULL)
+  {
+    printf("file not found\n");
+    return;
+  }
+  
+  printf("Length of file is %i\n", StrLength(s));
+  printf("Number of Strings is %i\n", Slashn(s));
+  printf("num of digs is %i\n", StrDigitCount(s, 0, StrLength(s)));
+  printf("Number of Letters is %15i\n\n", StrLettersCount(s));
+  while (i < 26)
+  {
+    printf("Number of %c: %16i\n", abc[i], Letcount(s, i));   
+    i++;
+  }
+  i = 0;
+  while (i < 32)
+  {                          
+    
+    printf("Number of %c: %i\n", i + 128, Rusletcount(s, i));   
+    if (i == 5)
+      printf("Number of %c: %i\n", 240,  Rusletcount(s, 32));   
+    i++;
+  }
+
+  if (Issymm(s, 0, 0) == 1)
+    printf("\n");
+  else    printf("not symm\n");
+  
+  if (Ispol(s) == 1)
+      printf("is pol\n");
+  else    printf("not pol\n");
+  
+  printf("(8)num of words = %i\n", WordsCount(s));
+  printf("(9)symm words in file = %i\n", Symmword(s));
+  printf("(10)Sum of Digits = %i\n", DigitSum(s));
+  free(s);
+  getch();
+}
