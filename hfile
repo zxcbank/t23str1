@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+char *Load(char *FileName);
+int StrLength(char *s);
+int StrDigitCount(char *s, int begin, int end);
+int StrLettersCount(char *s);
+int Slashn(char *s);          
+int Letcount(char *s, int i);        
+int Rusletcount(char *s, int N);    
+int Issymm(char *s, int i, int j);                      
+int Ispol(char *s);
+int WordsCount(char *s);
+int Symmword(char *s);
+int DigitSum(char *s);
